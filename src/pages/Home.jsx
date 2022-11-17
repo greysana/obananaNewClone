@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import MainBanner from '../components/home/banners/MainBanner'
 import SlideBanner from '../components/home/banners/SlideBanner'
 import SubBanners from '../components/home/banners/SubBanners'
@@ -10,11 +11,12 @@ import NewArrival from '../components/home/NewArrival'
 import ShopSlides from '../components/home/ShopSlides'
 import TopCategories from '../components/home/TopCategories'
 
+
 const Home = () => {
   return (
-    <div>
-        <MainBanner/>
-        <Categories/>
+    <Con>
+        {/* <MainBanner/> */}
+        {/* <Categories/> */}
         <SubBanners/>
         <LatesProduct/>
         <SubBanners/>
@@ -26,8 +28,10 @@ const Home = () => {
         <ShopSlides/>
         <NewArrival/>
 
-    </div>
+    </Con>
   )
 }
-
+const Con = styled.div`
+height: 100%;
+`
 export default Home

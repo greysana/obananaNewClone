@@ -1,100 +1,79 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { FiSearch } from "react-icons/fi";
-import { AiOutlineUnorderedList, AiFillThunderbolt } from "react-icons/ai";
-import { TfiAngleDown } from "react-icons/tfi";
 
-import { FaBalanceScale, FaRegHeart, FaShoppingCart } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaBalanceScale,
+  FaRegHeart,
+  FaShoppingCart,
+  FaAngleRight,
+  FaBars,
+} from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
-import saleIcon from "../../assets/saleIcon.svg"
+import { InView } from "react-intersection-observer";
 
-const navs = [
-  {
-    name: "Home",
-  },
-  {
-    name: "Sell On Obanana",
-  },
-  {
-    name: "Feedback",
-  },
-  {
-    name: "FAQs",
-  },
-  {
-    name: "My Account",
-  },
-];
 
-const MainNav = () => {
+const MainNav = ({ setNav, setInView }) => {
   return (
-    <Con>
-      <div className="conWrap">
-        <div className="imgWrap">
-          <img
-            src="https://obanana.com/wp-content/uploads/2022/03/new-logo.png"
-            alt=""
+    <InView onChange={setInView}>
+      <Con>
+        <div
+          className="conWrap"
+         
+        >
+          <FaBars
+            className="bar"
+            onClick={() => {
+              setNav(true);
+            }}
           />
-        </div>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search..."
-            //value={"name"}
-            // onChange={(e) => setName(e.target.value)}
-          />
-          <FiSearch className="icon" />
-        </div>
-        <div className="right">
-          <div className="contact">
-            <IoCallOutline className="phone" />
-            <div className="cont">
-              <h1>
-                Live Chat <span>or dial:</span>
-              </h1>
-              <p>+63 917 722 6002</p>
+          <div className="imgWrap">
+            <img
+              src="https://obanana.com/wp-content/uploads/2022/03/new-logo.png"
+              alt=""
+            />
+          </div>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="Search..."
+              //value={"name"}
+              // onChange={(e) => setName(e.target.value)}
+            />
+            <FiSearch className="icon" />
+          </div>
+          <div className="right">
+            <div className="contact">
+              <IoCallOutline className="phone" />
+              <div className="cont">
+                <h1>
+                  Live Chat <span>or dial:</span>
+                </h1>
+                <p>+63 917 722 6002</p>
+              </div>
+            </div>
+            <div className="notif">
+              <span>
+                <FaBalanceScale className="icon" />
+                <p>Compare</p>
+              </span>
+              <span>
+                <FaRegHeart className="icon" />
+                <p>Wishlist</p>
+              </span>
+            </div>
+            <div className="cart">
+              <p>₱0.00</p>
+              <FaShoppingCart className="icon" />
             </div>
           </div>
-          <div className="notif">
-            <span>
-              <FaBalanceScale className="icon" /> Compare
-            </span>
-            <span>
-              <FaRegHeart className="icon" /> Wishlist
-            </span>
-          </div>
-          <div className="cart">
-            <p>₱0.00</p>
-            <FaShoppingCart className="icon" />
-          </div>
         </div>
-      </div>
-      <div className="navCon">
-        <div className="categories">
-          <AiOutlineUnorderedList className="list" />{" "}
-          <p>
-            Our Categories{" "}
-            <span>
-              <TfiAngleDown className="down" />
-            </span>
-          </p>
-        </div>
-        <div className="navLinks">
-          {navs.map((link, index) => (
-            <div key={index} className="navLink">
-              {link.name}
-            </div>
-          ))}
-        </div>
-        <div className="right">
-          <AiFillThunderbolt />
-       <img src={saleIcon} alt="" />
-        </div>
-      </div>
-    </Con>
+      </Con>
+    </InView>
   );
-}
+};
 
     const Con = styled.div`
       display: flex;
@@ -102,6 +81,7 @@ const MainNav = () => {
       // justify-content: space-around;
       padding: 22px 0px 10px 0px;
       width: 100vw;
+      overflow-x: hidden;
       // justify-content: space-between;
       & .conWrap {
         display: flex;
@@ -109,13 +89,28 @@ const MainNav = () => {
         align-items: center;
         padding: 10px;
         width: 100%;
-        justify-content: center;
+        justify-content: space-between;
+
+        & .bar {
+          display: none;
+        }
+        @media (max-width: 1024px) {
+          & .bar {
+            display: block;
+            //  margin: auto ;
+            font-size: 30px;
+            margin-left: 1rem;
+            // margin-right:0rem ;
+            cursor: pointer;
+          }
+        }
         & .imgWrap {
           width: 15%;
           & img {
             //  margin-top: 2rem;
             width: 144px;
             margin: auto;
+            margin-left: 1rem;
             display: block;
           }
         }
@@ -125,7 +120,7 @@ const MainNav = () => {
           display: inline-flex;
           margin: auto 1.2rem;
           height: 47px;
-          width: 57%;
+          width: 55%;
           position: relative;
           background-color: transparent;
           // box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
@@ -135,7 +130,14 @@ const MainNav = () => {
           //  margin-top: 1rem;
           border-radius: 5px;
           border: 2px solid #ec7a5c;
-
+          @media (max-width: 1068px) {
+            width: 37%;
+          }
+          @media (max-width: 1024px) {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+          }
           & .icon {
             margin: auto;
             margin-left: 0.5rem;
@@ -168,16 +170,39 @@ const MainNav = () => {
           justify-content: flex-end;
           margin-right: 1rem;
           padding: 1rem;
-
+          @media (max-width: 1468px) {
+            width: 47%;
+          }
+          @media (max-width: 990px) {
+            & p {
+              display: none;
+            }
+          }
           & .contact {
             display: inline-flex;
             height: 47px;
+            width: 200px;
+            @media (max-width: 990px) {
+              width: auto;
+            }
+            @media (max-width: 574px) {
+              display: none;
+            }
             & .phone {
               margin: auto;
               font-size: 30px;
+              @media (max-width: 990px) {
+                margin: auto;
+                font-size: 35px;
+              }
             }
             & .cont {
               margin-left: 0.6rem;
+              @media (max-width: 990px) {
+                display: none;
+                width: 0;
+              }
+
               & h1 {
                 font-size: 0.9rem;
                 font-weight: 100;
@@ -201,6 +226,14 @@ const MainNav = () => {
             border-right: 1px solid var(--obanana-light-color);
             border-left: 1px solid var(--obanana-light-color);
             padding: 0rem;
+            @media (max-width: 990px) {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            @media (max-width: 574px) {
+              display: none;
+            }
             & span {
               display: flex;
               flex-direction: column;
@@ -209,12 +242,21 @@ const MainNav = () => {
               color: var(--obanana-secondary-color);
               margin: auto 1rem;
               position: relative;
-              top: 5px;
-
+              top: 0px;
+              & p {
+                position: relative;
+                top: -0.8rem;
+              }
+              @media (max-width: 990px) {
+                top: 0;
+              }
               & .icon {
-                font-size: 30px;
+                font-size: 35px;
                 position: relative;
                 left: 0.6rem;
+                @media (max-width: 990px) {
+                  margin: auto;
+                }
               }
             }
           }
@@ -229,45 +271,11 @@ const MainNav = () => {
             }
             & .icon {
               color: var(--obanana-secondary-color);
-              font-size: 30px;
+              font-size: 35px;
               margin-left: 0.3rem;
+              margin-right: 1rem;
             }
           }
-        }
-      }
-      & .navCon {
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.1px;
-        text-transform: uppercase;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--obanana-dark-color);
-        & .categories {
-          display: flex;
-          & .list {
-            margin: auto 0.5rem;
-            font-size: 20px;
-          }
-          & .down {
-            font-size: 10px;
-          }
-        }
-        & .navLinks {
-          display: inline-flex;
-          margin: auto 1rem;
-          margin-left: 5rem;
-          & .navLink {
-            margin: auto 1rem;
-            text-transform: capitalize;
-          }
-        }
-      }
-      & .right{
-        & img{
-            width: 30px;
-            height: 50px;
-            transform: rotateX('180');
         }
       }
     `;
