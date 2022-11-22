@@ -32,14 +32,19 @@ const Categories = () => {
           //style={{"@media (min-width: 992px) and (max-width:1192px)":"width:90vw"}}
           breakpoints={{
             // when window width is >= 576px
-            576:{
+            1: {
+              spaceBetween: 0,
+              slidesPerView: 2,
+            },
+            576: {
+              spaceBetween: 0,
               slidesPerView: 4,
             },
             992: {
               slidesPerView: 6,
-              spaceBetween:0,
+              spaceBetween: 0,
             },
-            1199: { 
+            1199: {
               slidesPerView: 7,
             },
           }}
@@ -59,7 +64,7 @@ const Categories = () => {
                 >
                   <img
                     className={hover === i ? "img hover" : "img"}
-                   // style={{ height: "128px", width: "128px", margin: "auto" }}
+                    style={{ height: "128px", width: "128px", margin: "auto" }}
                     src={img.images}
                     alt=""
                   />
@@ -68,7 +73,6 @@ const Categories = () => {
               </SwiperSlide>
             );
           })}
-       
         </Swiper>
       </div>
     </Con>
@@ -77,32 +81,34 @@ const Categories = () => {
 const Con = styled.div`
   //padding: 1rem;
   padding-top: 2rem;
- // width: 100%;
-  & .con{
-    //width:100%;
-
-    background-color: red;
+  // width: 100%;
+  & .con {
+    //width:100%
+    position: relative;
+    z-index: 10;
     @media screen and (max-width: 1024px) {
-     // width: 90vw;
-      & .swiper-container{
-        //width: 100%;
-      }
-      & .swiper-slide{
-      //  max-width: 120px;
+      // width: 90vw;
+      & .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
   & .content {
     display: flex;
     justify-content: center;
-   // width: 95%;
+    // width: 95%;
     align-items: center;
     margin: auto;
+    position: relative;
+    z-index: 10;
     & h4 {
       text-align: center;
       margin: auto;
     }
-    
+
     & .wrapper {
       height: 130px;
       width: 130px;
@@ -129,32 +135,12 @@ const Con = styled.div`
     & .img {
       object-fit: cover;
       position: relative;
+      z-index: 10;
+      transition: all 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94);
       margin: auto;
       &.hover {
+        transition: all 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94);
         transform: scale(0.8);
-      }
-    }
-    @media (max-width: 1192px) {
-      & .img {
-        height: 120px;
-        width: 120px;
-      }
-      & .wrapper {
-        height: 122px;
-        margin: 1rem auto;
-        width: 122px;
-      }
-    }
-    @media (max-width: 1024px) {
-     
-      & .img {
-        height: 110px;
-        width: 110px;
-      }
-      & .wrapper {
-        height: 115px;
-        margin: 1rem 5px;
-        width: 115px;
       }
     }
   }

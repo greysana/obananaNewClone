@@ -32,7 +32,7 @@ const MainBanner = () => {
             <SwiperSlide className='perSlide' key={i}>
               <img
                 className="img"
-                style={{ height: "auto", width: "100vw" }}
+                style={{ height: "auto", width: "100vw" ,position:"relative",zIndex:5}}
                 src={img.images}
                 alt=""
               />
@@ -48,34 +48,43 @@ const MainBanner = () => {
   );
 }
 const Con = styled.div`
-  /* & .swiper {
+  position: relative;
+  z-index: 1;
+  & .perSlide {
+    position: relative;
+    z-index: 2;
+    & .img {
+      object-fit: cover;
+      position: relative;
+      z-index:2;
+    }
+  }
+  & .swiper {
+    position: relative;
+
     @media (max-width: 1024px) {
-     // display: none;
+      // display: none;
       width: 100vw;
-     
-      & .swiper-pagination {
-        display: none;
-      }
     }
 
     & .img {
-      object-fit: contain;
+      object-fit: cover;
+      position: relative;
     }
-  } */
-  /* & .perSlide{
-    height:500px;
   }
+
   .swiper {
     width: 100%;
     height: 100%;
-  } */
+  }
 
-  /* & .swiper-slide {
+  & .swiper-slide {
+    position: relative;
+    z-index: 10;
     text-align: center;
     font-size: 18px;
     background: #fff;
 
-  
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -88,19 +97,12 @@ const Con = styled.div`
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  } */
-
-  /* & .swiper-slide img.img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   & .swiper-pagination-bullet {
     background-color: var(--obanana-primary-color);
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     animation: width-shrink 0.3s ease-in-out both;
 
     &.swiper-pagination-bullet-active {
@@ -108,12 +110,12 @@ const Con = styled.div`
       border-radius: 25px;
       animation: width-expand 0.3s ease-in-out both;
     }
-  } */
+  }
 
-  /* @keyframes width-expand {
+  @keyframes width-expand {
     0% {
-      -webkit-width: 15px;
-      width: 15px;
+      -webkit-width: 10px;
+      width: 10px;
     }
     50% {
       -webkit-width: 20px;
@@ -134,10 +136,10 @@ const Con = styled.div`
       width: 20px;
     }
     100% {
-      -webkit-width: 15px;
-      width: 15px;
+      -webkit-width: 10px;
+      width: 10px;
     }
-  } */
+  }
 `;
 
 export default MainBanner

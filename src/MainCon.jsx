@@ -24,22 +24,25 @@ const MainCon = () => {
   return (
     <AnimatePresence>
       <Con className={sideNav === true ? "active" : ""}>
+        <div
+          className="shadow"
+          onClick={() => {
+            setSideNav(!sideNav);
+          }}
+        ></div>
+
         <div className={sideNav === true ? "sidebar active" : "sidebar"}>
-          <div
-            className="shadow"
-            onClick={() => {
-              setSideNav(!sideNav);
-            }}
-          ></div>
-          <div className="bar">
-            <SideNav />
-          </div>
-          <motion.i
+          {" "}
+          <div className="i">
+            <motion.i
             whileHover={{ scale: 1.2, rotate: 90 }}
             whileTap={{
               scale: 0.8,
               rotate: -90,
               borderRadius: "100%",
+            }}
+            onClick={() => {
+              setSideNav(!sideNav);
             }}
           >
             <AiOutlineClose
@@ -49,6 +52,16 @@ const MainCon = () => {
               }}
             />
           </motion.i>
+          </div>
+          <div className="bars">
+            <SideNav />
+          </div>{" "}
+          <div
+            className="shadow"
+            onClick={() => {
+              setSideNav(!sideNav);
+            }}
+          ></div>
         </div>
         <div className="main">
           <HeaderNav />
@@ -64,7 +77,6 @@ const MainCon = () => {
           </div>
           <Footer />
         </div>
-
         <div className={inView === false ? "bottomNav inview" : "bottomNav"}>
           <div className="wrap">
             <nav>
@@ -72,7 +84,11 @@ const MainCon = () => {
                 <AiOutlineHome className="i" />
                 <p>HOME</p>
               </span>
-              <span onClick={()=>{setSideNav(true)}}>
+              <span
+                onClick={() => {
+                  setSideNav(true);
+                }}
+              >
                 <AiOutlineUnorderedList className="i" />
                 <p>CATEGORIES</p>
               </span>
@@ -96,7 +112,6 @@ const MainCon = () => {
                   setsearchPop(false);
                 }}
               >
-                {" "}
                 <div
                   className={
                     searchPop === true ? "searchCon active" : "searchCon"
@@ -130,11 +145,61 @@ const Con = styled.div`
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  width: 100vw;
- 
   &.active {
     overflow-y: hidden;
     max-height: 100vh;
+    & .shadow {
+      background-color: #2c2c2c8d;
+      position: fixed;
+      z-index: 30;
+      height: 100vh;
+      width: 100vw;
+      right: 0;
+      cursor: pointer;
+    }
+    & .i {
+      height: 100vh;
+        width: 100%;
+      position: absolute;
+    //  background-color: red;
+      color: #fff;
+      z-index: 43;
+      font-size: 40px;
+      cursor: pointer;
+      right: 0;
+      & i .close {
+        position: relative;
+        top: 48%;
+        left: 90vw;
+        z-index: 41;
+        &:hover {
+          -webkit-animation: rotate-90-cw 0.4s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: rotate-90-cw 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+      }
+
+      @-webkit-keyframes rotate-90-cw {
+        0% {
+          -webkit-transform: rotate(0);
+          transform: rotate(0);
+        }
+        100% {
+          -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+      @keyframes rotate-90-cw {
+        0% {
+          -webkit-transform: rotate(0);
+          transform: rotate(0);
+        }
+        100% {
+          -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+    }
   }
   & .searchCon {
     display: none;
@@ -214,6 +279,7 @@ const Con = styled.div`
     }
   }
   & .content {
+    width: 100vw;
     &.inview {
       position: relative;
       //margin-top: 80px;
@@ -268,58 +334,33 @@ const Con = styled.div`
   }
   & .sidebar {
     display: none;
+    position: relative;
+    // width: 30vw;
+    & .shadow {
+      background-color: #0202028d;
+      position: fixed;
+      z-index: 45;
+      height: 100vh;
+      width: 100vw;
+      right: 0;
+      cursor: pointer;
+    }
   }
   @media (max-width: 1024px) {
     display: inline-flex;
+    position: relative;
     & .sidebar {
       --webkit-animation: slide-in-left 0.5s
         cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-      & .shadow {
-        background-color: #2c2c2c8d;
-        position: absolute;
-        height: 100vh;
-        width: 100vw;
-        cursor: pointer;
-      }
+      z-index: 32;
+      //
 
-      & i .close {
-        position: absolute;
-        color: #fff;
-        top: 48%;
-        left: 90vw;
-        z-index: 1;
-        font-size: 40px;
-        cursor: pointer;
-
-        &:hover {
-          -webkit-animation: rotate-90-cw 0.4s
-            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: rotate-90-cw 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        }
-        @-webkit-keyframes rotate-90-cw {
-          0% {
-            -webkit-transform: rotate(0);
-            transform: rotate(0);
-          }
-          100% {
-            -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-          }
-        }
-        @keyframes rotate-90-cw {
-          0% {
-            -webkit-transform: rotate(0);
-            transform: rotate(0);
-          }
-          100% {
-            -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-          }
-        }
-      }
-      & .bar {
-        z-index: 20;
+      & .bars{
+        position: relative;
+        width: 350px;
+        //  background-color: red;
+        z-index: 46;
         -webkit-animation: slide-in-left 0.5s
           cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
         animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -359,7 +400,7 @@ const Con = styled.div`
     display: none;
     background-color: #fff;
     padding: 1rem;
-    position:fixed;
+    position: fixed;
     z-index: 25;
     height: 60px;
     @media (max-width: 768px) {

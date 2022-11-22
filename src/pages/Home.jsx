@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import MainBanner from '../components/home/banners/MainBanner'
 import SlideBanner from '../components/home/banners/SlideBanner'
 import SubBanners from '../components/home/banners/SubBanners'
+import TextBanner from '../components/home/banners/TextBanner'
+import BenefitsSlider from '../components/home/BenefitsSlider'
 import BestSeller from '../components/home/BestSeller'
 import Categories from '../components/home/Categories'
 import FeaturedProducts from '../components/home/FeaturedProducts'
@@ -15,9 +17,11 @@ import TopCategories from '../components/home/TopCategories'
 const Home = () => {
   return (
     <Con>
-        {/* <MainBanner/> */}
-        {/* <Categories/> */}
+        <MainBanner/>
+        <Categories/>
         <SubBanners/>
+        <BenefitsSlider/>
+        <TextBanner/>
         <LatesProduct/>
         <SubBanners/>
         <TopCategories/>
