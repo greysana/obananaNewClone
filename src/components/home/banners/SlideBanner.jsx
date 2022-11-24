@@ -30,7 +30,7 @@ const Slidebanner = () => {
       {" "}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar]}
-        //  spaceBetween={50}
+         spaceBetween={30}
         // slidesPerView={3}
         // loop={true}
         // pagination={{ clickable: true }}
@@ -42,8 +42,8 @@ const Slidebanner = () => {
         //  centeredSlides={true}
         breakpoints={{
           1: { slidesPerView: 1 },
-          576: { slidesPerView: 2 },
-          992: { slidesPerView: 3 },
+          768: { slidesPerView: 2 },
+          1200: { slidesPerView: 3 },
         }}
       >
         {item?.map((img, i) => {
@@ -65,17 +65,19 @@ const Slidebanner = () => {
 };
 
 const Con = styled.div`
+width: 98vw;
+margin: auto 0;
   & .swiper {
     position: relative;
-    width: 85%;
-    margin: 2rem auto;
+    width: 95%;
+    margin: auto;
     // padding: 20px;
     box-sizing: border-box;
-    border: 1px solid #b4b4b489;
+    //border: 1px solid #b4b4b489;
     & .perSlide {
       & .card {
         margin: 1rem auto;
-        height: 250px;
+       // height: 250px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -85,9 +87,12 @@ const Con = styled.div`
         @media (max-width: 768px) {
           flex-direction: column;
         }
-        border-right: 1px solid #b4b4b489;
+      //  border-right: 1px solid #b4b4b489;
         & img {
-          height: 200px;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius:10px ;
         }
         & .label {
           display: flex;
@@ -99,8 +104,17 @@ const Con = styled.div`
             // margin: auto;
           }
           & p {
-            position: relative;
-            top: -1.5rem;
+            position: absolute;
+            bottom: 3rem;
+            right: 2rem;
+            background: #ffffffdf;
+            border-radius: 5px;
+            padding: 0.7rem 1.2rem;
+            cursor: pointer;
+            &:hover {
+              background-color: #ba3f02bc;
+              color: #fff;
+            }
           }
         }
       }

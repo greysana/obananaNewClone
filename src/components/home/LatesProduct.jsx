@@ -108,7 +108,22 @@ const Con = styled.div`
       }
       & img {
         width: 100%;
+        -webkit-animation: opacity-low 0.5s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: opacity-low 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94) both
+          ease-in-out;
         cursor: pointer;
+        @keyframes opacity-low {
+          0% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
       }
       & .search {
         position: relative;
@@ -118,6 +133,8 @@ const Con = styled.div`
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
         padding: 0.5rem;
         visibility: hidden;
+        background-color: #fff;
+        z-index: 26;
         &.active {
           visibility: visible;
         }
@@ -144,12 +161,11 @@ const Con = styled.div`
         }
         & p {
           font-size: 0.8rem;
-         
         }
         & h4 {
           color: red;
           margin: 0rem auto;
-          margin-bottom: .5rem;
+          margin-bottom: 0.5rem;
         }
         & .icon {
           color: var(--obanana-secondary-color);

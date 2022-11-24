@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import HeaderNav from './components/mainCon/HeaderNav'
 import MainNav from './components/mainCon/MainNav'
 import { Route, Routes } from "react-router-dom";
-import Home from './pages/Home';
-import Footer from './components/mainCon/Footer';
+
+import Home from './pages/Home';import Feedback from "./pages/Feedback";
+import SellOnObanana from "./pages/SellOnObanana";
+import Footer from "./components/mainCon/Footer";
+import FAQs from "./pages/FAQs";
+import Account from "./pages/Account";
+
 import styled from 'styled-components';
 import Nav from './components/mainCon/Nav';
 import SideNav from './components/mainCon/SideNav';
@@ -16,6 +21,7 @@ import {
 import { FiSearch } from "react-icons/fi";
 import {BsBag} from "react-icons/bs"
 import { motion, AnimatePresence} from "framer-motion";
+import ScrollButton from './pages/ScrollButton';
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
@@ -30,28 +36,27 @@ const MainCon = () => {
             setSideNav(!sideNav);
           }}
         ></div>
-
         <div className={sideNav === true ? "sidebar active" : "sidebar"}>
           {" "}
           <div className="i">
             <motion.i
-            whileHover={{ scale: 1.2, rotate: 90 }}
-            whileTap={{
-              scale: 0.8,
-              rotate: -90,
-              borderRadius: "100%",
-            }}
-            onClick={() => {
-              setSideNav(!sideNav);
-            }}
-          >
-            <AiOutlineClose
-              className="close"
+              whileHover={{ scale: 1.2, rotate: 90 }}
+              whileTap={{
+                scale: 0.8,
+                rotate: -90,
+                borderRadius: "100%",
+              }}
               onClick={() => {
                 setSideNav(!sideNav);
               }}
-            />
-          </motion.i>
+            >
+              <AiOutlineClose
+                className="close"
+                onClick={() => {
+                  setSideNav(!sideNav);
+                }}
+              />
+            </motion.i>
           </div>
           <div className="bars">
             <SideNav />
@@ -71,7 +76,11 @@ const MainCon = () => {
           </div>
           <div className={inView === false ? "content inview" : "content"}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />} />{" "}
+              <Route path="/testimonials/" element={<Feedback />} />
+              <Route path="/faq/" element={<FAQs />} />
+              <Route path="/my-account/" element={<Account />} />
+              <Route path="/sell-on-obanana/" element={<SellOnObanana />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
           </div>
@@ -135,13 +144,15 @@ const MainCon = () => {
               </span>
             </nav>
           </div>
-        </div>
+        </div>{" "}
+        <ScrollButton />
       </Con>
     </AnimatePresence>
   );
 }
 
 const Con = styled.div`
+  
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -159,9 +170,9 @@ const Con = styled.div`
     }
     & .i {
       height: 100vh;
-        width: 100%;
+      width: 100%;
       position: absolute;
-    //  background-color: red;
+      //  background-color: red;
       color: #fff;
       z-index: 43;
       font-size: 40px;
@@ -293,7 +304,7 @@ const Con = styled.div`
       right: 0;
       background-color: #fff;
       padding-top: 1rem;
-      z-index: 20;
+      z-index: 27;
       box-shadow: 2px 0px 4px 1px rgba(0, 0, 0, 0.15);
       height: 65px;
       // height 50px;
@@ -347,6 +358,7 @@ const Con = styled.div`
     }
   }
   @media (max-width: 1024px) {
+   // background-color: #464646;
     display: inline-flex;
     position: relative;
     & .sidebar {
@@ -356,7 +368,7 @@ const Con = styled.div`
       z-index: 32;
       //
 
-      & .bars{
+      & .bars {
         position: relative;
         width: 350px;
         //  background-color: red;

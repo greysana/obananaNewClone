@@ -4,6 +4,7 @@ import MainBanner from '../components/home/banners/MainBanner'
 import SlideBanner from '../components/home/banners/SlideBanner'
 import SubBanners from '../components/home/banners/SubBanners'
 import TextBanner from '../components/home/banners/TextBanner'
+import TwoBanner from '../components/home/banners/TwoBanner'
 import BenefitsSlider from '../components/home/BenefitsSlider'
 import BestSeller from '../components/home/BestSeller'
 import Categories from '../components/home/Categories'
@@ -17,23 +18,24 @@ import TopCategories from '../components/home/TopCategories'
 const Home = () => {
   return (
     <Con>
-        <MainBanner/>
-        <Categories/>
-        <SubBanners/>
-        <BenefitsSlider/>
-        <TextBanner/>
-        <LatesProduct/>
-        <SubBanners/>
-        <TopCategories/>
-        <SubBanners/>
-        <FeaturedProducts/>
-        <SlideBanner/>
-        <BestSeller/>
-        <ShopSlides/>
-        <NewArrival/>
-
+      <MainBanner />
+      <Categories />
+      <SubBanners />
+      <BenefitsSlider />
+      <TextBanner />
+      <LatesProduct />
+      <SubBanners />
+      <TopCategories />
+      <SubBanners />
+      <FeaturedProducts />
+      <SlideBanner />
+      <BestSeller />
+      <TwoBanner />
+      <ShopSlides />
+      <NewArrival />
+      <TwoBanner />
     </Con>
-  )
+  );
 }
 const Con = styled.div`
 height: 100%;

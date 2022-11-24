@@ -47,7 +47,7 @@ const Con = styled.div`
       margin: auto 2rem;
       margin-left: 3rem;
       line-height: 1;
-      font-size:4rem;
+      font-size: 4rem;
       font-weight: 900;
     }
   }
@@ -82,9 +82,31 @@ const Con = styled.div`
       display: inline-flex;
       justify-content: center;
       align-items: center;
+
       & .icon {
-        margin-left: 1rem;
+        margin-left: .5rem;
         font-size: 1.5rem;
+      }
+      &:hover {
+        & .icon {
+          -webkit-animation: slide-in-right 0.3s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+
+          @keyframes slide-in-right {
+            0% {
+              -webkit-transform: translateX(0);
+              transform: translateX(0);
+              opacity: 1;
+            }
+            100% {
+              -webkit-transform: translateX(30px);
+              transform: translateX(15px);
+              opacity: 1;
+            }
+          }
+        }
       }
     }
   }

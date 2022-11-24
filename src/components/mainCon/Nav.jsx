@@ -31,7 +31,7 @@ const navs = [
   },
   {
     name: "My Account",
-    link: "/my-account-2/",
+    link: "/my-account/",
   },
 ];
 const categories = [
@@ -137,7 +137,7 @@ const categories = [
 ];
 
 const Nav = () => {
-    const [activeTab, setactiveTab] = useState("home")
+  const [activeTab, setactiveTab] = useState("home")
   const [active, setActive] = useState("/");
   const [activeCategory, setActiveCategory] = useState(false);
   const [activeSubCategory, setActiveSubCategory] = useState("");
@@ -285,6 +285,8 @@ const Con = styled.div`
       & .categories {
         display: flex;
         cursor: pointer;
+        position: relative;
+        z-index: 27;
         &.active {
           color: var(--obanana-primary-color-hover);
         }
@@ -469,9 +471,7 @@ const Con = styled.div`
       input {
         width: 100%;
         padding: 10px;
-        //margin: 0;
-        //  flex: 1;
-        // min-width: 40px;
+    
         font-size: 1.2rem;
         display: block;
         font-family: monospace;
