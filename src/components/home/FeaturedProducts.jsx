@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { product } from "./productsAssets/products";
 import { FaBalanceScale } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import FeaturedBanner from "./banners/FeaturedBanner";import { Grid, Pagination } from "swiper";
+import { AiOutlineHeart } from "react-icons/ai";
+import FeaturedBanner from "./banners/FeaturedBanner";
+import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
@@ -110,10 +112,14 @@ const FeaturedProducts = () => {
                       >
                         <p>{prod.productName}</p>
                         <h4>₱{prod.price}.00</h4>
-
-                        <FaBalanceScale
-                          className={prodHover === i ? "icon active" : "icon"}
-                        />
+                        <div className="icon">
+                          <AiOutlineHeart
+                            className={prodHover === i ? "icon active" : "icon"}
+                          />
+                          <FaBalanceScale
+                            className={prodHover === i ? "icon active" : "icon"}
+                          />
+                        </div>
                       </div>
                     </div>{" "}
                   </SwiperSlide>

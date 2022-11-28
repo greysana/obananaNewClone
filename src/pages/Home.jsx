@@ -39,5 +39,7 @@ const Home = () => {
 }
 const Con = styled.div`
 height: 100%;
+width: 100vw;
+padding: 0;
 `
 export default Home

@@ -52,7 +52,7 @@ const TwoBanner = () => {
 
 const Con = styled.div`
   position: relative;
-  width: 98vw;
+  width: 100%;
   margin: auto 0;
   display: flex;
   justify-content: center;
@@ -80,6 +80,10 @@ const Con = styled.div`
     @media (max-width: 992px) {
       width: 90%;
     }
+    @media (max-width: 400px) {
+      width: 100%;
+      margin: 1rem 0;
+    }
   }
   & button {
     position: relative;
@@ -105,6 +109,10 @@ const Con = styled.div`
       width: 95%;
       margin: 1rem auto;
     }
+    @media (max-width: 400px) {
+      width: 100%;
+      margin: 1rem auto;
+    }
     & button {
       position: relative;
       background-color: #ba3f02bc;
@@ -118,7 +126,10 @@ const Con = styled.div`
       justify-content: center;
       align-items: center;
       margin: auto;
-      // bottom: -5rem;
+      // bottom: -5rem; 
+      @media (max-width: 400px) {
+        bottom:2rem;
+      }
       & .icon {
         font-size: 18px;
         margin: auto 10px;
@@ -170,7 +181,7 @@ const Con = styled.div`
       }
       & p {
         position: relative;
-        line-height: 0px;
+        line-height: 20px;
         top: -2rem;
       }
       @media (max-width: 1500px) {
@@ -191,6 +202,11 @@ const Con = styled.div`
       @media (max-width: 568px) {
         left: -5%;
       }
+      @media (max-width: 400px) {
+        left: 10%;
+        width: 300px;
+     //  white-space: normal;
+      }
     }
     &.two .text {
       // bottom: 5rem;
@@ -200,6 +216,9 @@ const Con = styled.div`
       }
       @media (max-width: 568px) {
         right: -15%;
+      }
+      @media (max-width: 400px) {
+        right: -2%;
       }
       & h3 {
         color: var(--obanana-primary-color);
@@ -216,7 +235,7 @@ const Con = styled.div`
       }
       & p {
         position: relative;
-        line-height: 0px;
+        //line-height: 0px;
         top: -2rem;
       }
     }

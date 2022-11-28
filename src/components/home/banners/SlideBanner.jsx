@@ -65,8 +65,11 @@ const Slidebanner = () => {
 };
 
 const Con = styled.div`
-width: 98vw;
-margin: auto 0;
+width: 99vw;
+margin: auto ;
+display: flex;
+justify-content: center;
+align-items: center;
   & .swiper {
     position: relative;
     width: 95%;

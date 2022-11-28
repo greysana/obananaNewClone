@@ -32,7 +32,7 @@ const Feedback = () => {
 };
 
 const Con = styled.div`
-
+  width: 100vw;
   & .header1 {
     background-color: rgba(182, 174, 174, 0.253);
     width: 100%;

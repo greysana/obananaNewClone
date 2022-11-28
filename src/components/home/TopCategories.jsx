@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import { AiOutlineHeart } from "react-icons/ai";
 
 const navs = [
   "Groceries & Merchandise",
@@ -26,7 +27,7 @@ const TopCategories = () => {
         <h1>Top Categories</h1>
       </div>
       <div className="prodWrap">
-        <div className="categoryList">
+        <div className="categoryLists">
           <div className="navLatest">
             {" "}
             {navs.map((nav, i) => {
@@ -124,9 +125,14 @@ const TopCategories = () => {
                         <p>{prod.productName}</p>
                         <h4>₱{prod.price}.00</h4>
 
-                        <FaBalanceScale
-                          className={prodHover === i ? "icon active" : "icon"}
-                        />
+                        <div className="icon">
+                          <AiOutlineHeart
+                            className={prodHover === i ? "icon active" : "icon"}
+                          />
+                          <FaBalanceScale
+                            className={prodHover === i ? "icon active" : "icon"}
+                          />
+                        </div>
                       </div>
                     </div>{" "}
                   </SwiperSlide>
@@ -142,9 +148,9 @@ const TopCategories = () => {
 const Con = styled.div`
   // padding: 1rem 1rem;
   height: auto;
-  width: 90%;
+  width: 90vw;
   // position: relative;
-  //margin: auto;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,20 +167,22 @@ const Con = styled.div`
   }
   & .prodWrap {
     display: flex;
-    width: 95vw;
+    width: 90vw;
     margin: auto;
+    justify-content: center;
     //  padding: 1rem;
     @media (max-width: 768px) {
       flex-direction: column;
+      width: 100vw;
     }
     // width: 100%;
-    & .categoryList {
+    & .categoryLists {
       width: 30vw;
-      max-width: 300px;
-      margin: 1rem;
+      max-width: 320px;
+      padding: 1rem 0;
       @media (max-width: 768px) {
         width: 100vw;
-        margin: auto;
+        margin: auto 0;
         max-width: none;
       }
       & .navLatest {
@@ -182,17 +190,20 @@ const Con = styled.div`
         flex-wrap: wrap;
         flex-direction: column;
         border: 1px solid #c9c9c933;
-        margin: auto;
         margin-top: 2rem;
         padding: 2rem 0.5rem;
-
+        border-radius: 3px;
+        max-width: 320px;
+        @media (max-width: 1092px) {
+          width: 20vw;
+          margin: auto;
+          max-width: none;
+        }
         @media (max-width: 768px) {
           width: 90%;
           padding: 2rem 1rem;
-          margin: 1rem auto;
+          margin: 1rem 5px;
         }
-        width: 100%;
-        border-radius: 3px;
         & span {
           display: flex;
           //  align-items: center;
@@ -236,10 +247,6 @@ const Con = styled.div`
         margin: 0;
       }
       & .contentsCon {
-        // display: flex;
-        /* flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
         height: 600px;
         margin: 0;
         @media (max-width: 768px) {
@@ -250,12 +257,15 @@ const Con = styled.div`
           width: 80vw;
           margin-top: 2rem;
           position: relative;
+          display: flex;
           z-index: 19;
+          justify-content: center;
+          align-items: center;
           @media (max-width: 1816px) {
-            width: 78vw;
+            width: 72vw;
           }
           @media (max-width: 1516px) {
-            width: 75vw;
+            width: 70vw;
           }
           @media (max-width: 1420px) {
             width: 72vw;
@@ -266,10 +276,14 @@ const Con = styled.div`
           @media (max-width: 768px) {
             width: 90vw;
           }
+          & .swiper-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
           & .perSlide {
             height: calc((100% - 40px) / 2) !important;
-            //  width: 90%;
-            /* Center slide text vertically */
+            width: 100%;
             display: -webkit-box;
             display: -ms-flexbox;
             display: -webkit-flex;
@@ -285,24 +299,21 @@ const Con = styled.div`
           }
         }
         & .prodCard {
-          //width: 16%;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          //  width: 250px;
-          //overflow: hidden;
-          margin: 0;
+          margin: auto;
           @media (max-width: 992px) {
             width: 100%;
           }
           & img {
             cursor: pointer;
-            height: 220px;
-            width: 220px;
+            height: 200px;
+            width: 200px;
             margin: auto;
             position: relative;
             z-index: 20;
-            @media (max-width: 768px){
+            @media (max-width: 768px) {
               width: 200px;
               height: auto;
               object-fit: cover;
@@ -326,7 +337,7 @@ const Con = styled.div`
             padding: 10px;
             background-color: #fff;
             //animation: slide-down 4s ease-in-out;
-           
+
             position: relative;
             z-index: 23;
 

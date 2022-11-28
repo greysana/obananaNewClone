@@ -1,6 +1,8 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import styled from "styled-components";
+import Left from "./newArrival/Left";
+import Right from "./newArrival/Right";
 const images = [
   {
     link: "https://obanana.com/wp-content/uploads/2022/07/LOWER-CENTRAL.png",
@@ -11,7 +13,7 @@ const images = [
 const NewArrival = () => {
   return (
     <Con>
-      <div className="left">Left</div>
+      <div className="left"><Left/></div>
       <div className="bannerCon">
        
         <div className="imgCons one">
@@ -26,7 +28,7 @@ const NewArrival = () => {
           </div>
         </div>
       </div>
-      <div className="right">Right</div>
+      <div className="right"><Right/></div>
     </Con>
   );
 };
@@ -47,6 +49,14 @@ const Con = styled.div`
       "left right";
     height: 1180px;
   }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.6fr 1fr 1fr;
+    grid-template-areas:
+      " banner "
+      "left " "right";
+    height: 2350px;
+  }
 
   & .bannerCon {
     grid-area: banner;
@@ -60,17 +70,27 @@ const Con = styled.div`
       width: 45vw;
       height: 582px;
       flex-direction: column;
+      //  margin: 0;
+      @media (max-width: 1480px) {
+        width: 38vw;
+      }
+      @media (max-width: 1320px) {
+        width: 30vw;
+      }
       @media (max-width: 992px) {
         width: 90%;
         margin: 1rem auto;
-        margin-right: 2rem;
+        margin-right: 2.8rem;
+      }
+      @media (max-width: 768px) {
+        width: 95%;
       }
       & img.bannerImg {
         position: relative;
         object-fit: cover;
+        height: 582px;
         // margin: auto;
       }
-      //  margin: 0;
       & button {
         position: relative;
         background-color: #ba3f02bc;
@@ -137,24 +157,18 @@ const Con = styled.div`
           line-height: 25px;
           //   top: -2rem;
         }
-        /* @media (max-width: 1500px) {
+        @media (max-width: 1500px) {
           left: -10%;
         }
-        @media (max-width: 1100px) {
+        @media (max-width: 1300px) {
           left: -5%;
+        }
+        @media (max-width: 1192px) {
+          left: 1%;
         }
         @media (max-width: 992px) {
-          left: -20%;
+          left: -25%;
         }
-        @media (max-width: 768px) {
-          left: -15%;
-        }
-        @media (max-width: 612px) {
-          left: -10%;
-        }
-        @media (max-width: 568px) {
-          left: -5%;
-        } */
       }
 
       & .texts {

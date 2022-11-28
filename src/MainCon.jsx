@@ -22,6 +22,7 @@ import { FiSearch } from "react-icons/fi";
 import {BsBag} from "react-icons/bs"
 import { motion, AnimatePresence} from "framer-motion";
 import ScrollButton from './pages/ScrollButton';
+import ProductPage from './pages/ProductPage';
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
@@ -80,6 +81,7 @@ const MainCon = () => {
               <Route path="/testimonials/" element={<Feedback />} />
               <Route path="/faq/" element={<FAQs />} />
               <Route path="/my-account/" element={<Account />} />
+              <Route path="/product" element={<ProductPage />} />
               <Route path="/sell-on-obanana/" element={<SellOnObanana />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
@@ -156,6 +158,10 @@ const Con = styled.div`
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //width:100vw;
   &.active {
     overflow-y: hidden;
     max-height: 100vh;
@@ -164,7 +170,7 @@ const Con = styled.div`
       position: fixed;
       z-index: 30;
       height: 100vh;
-      width: 100vw;
+      width: 100%;
       right: 0;
       cursor: pointer;
     }
@@ -290,7 +296,7 @@ const Con = styled.div`
     }
   }
   & .content {
-    width: 100vw;
+    width: 100%;
     &.inview {
       position: relative;
       //margin-top: 80px;
@@ -352,7 +358,7 @@ const Con = styled.div`
       position: fixed;
       z-index: 45;
       height: 100vh;
-      width: 100vw;
+      width: 100%;
       right: 0;
       cursor: pointer;
     }

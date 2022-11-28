@@ -98,8 +98,8 @@ const ShopSlides = () => {
   const [hover, sethover] = useState();
   return (
     <Con>
-      {" "}
-      <h1>Categories</h1>
+     
+    
       <div className="content">
         <Swiper
           // install Swiper modules
@@ -312,6 +312,9 @@ const Con = styled.div`
       border: 1px solid #aaaaaa;
       display: flex;
       flex-direction: column;
+      &:hover {
+        border: 1px solid var(--obanana-primary-color);
+      }
       & .top {
         display: inline-flex;
         justify-content: center;
@@ -369,18 +372,17 @@ const Con = styled.div`
         animation: width-expand 0.3s ease-in-out both;
       }
     }
-   
-      object-fit: cover;
-      position: relative;
-      z-index: 10;
+
+    object-fit: cover;
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94);
+    margin: auto;
+    &.hover {
       transition: all 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94);
-      margin: auto;
-      &.hover {
-        transition: all 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94);
-        transform: scale(0.8);
-      }
-    } 
-  
+      transform: scale(0.8);
+    }
+  }
 
   & h1 {
     font-size: 1.5rem;

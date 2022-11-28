@@ -65,11 +65,13 @@ const LatesProduct = () => {
   )
 }
 const Con = styled.div`
-  padding: 2rem 1rem;
+ // padding: 2rem 1rem;
   height: auto;
   & .header {
     display: flex;
     justify-content: space-between;
+    width: 95%;
+    margin: auto;
     @media (max-width: 1024px) {
       flex-direction: column;
     }

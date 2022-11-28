@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import { AiOutlineHeart } from "react-icons/ai";
 const navs = [
   "Groceries & Merchandise",
   "Food & Beverages",
@@ -112,9 +113,14 @@ const BestSellers = () => {
                         <p>{prod.productName}</p>
                         <h4>₱{prod.price}.00</h4>
 
-                        <FaBalanceScale
-                          className={prodHover === i ? "icon active" : "icon"}
-                        />
+                        <div className="icon">
+                          <AiOutlineHeart
+                            className={prodHover === i ? "icon active" : "icon"}
+                          />
+                          <FaBalanceScale
+                            className={prodHover === i ? "icon active" : "icon"}
+                          />
+                        </div>
                       </div>
                     </div>{" "}
                   </SwiperSlide>

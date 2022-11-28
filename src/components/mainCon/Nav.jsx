@@ -275,7 +275,7 @@ const Con = styled.div`
     justify-content: space-between;
     font-size: 14px;
     font-weight: 600;
-    width: 100vw;
+    width: 98%;
     color: var(--obanana-dark-color);
 
     & .left {

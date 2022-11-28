@@ -15,6 +15,8 @@ function App() {
   );
 }
 const Con = styled.div`
+width: 100vw;
+margin: auto;
 `
 
 export default App;
