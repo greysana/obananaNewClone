@@ -22,9 +22,9 @@ import { FiSearch } from "react-icons/fi";
 import {BsBag} from "react-icons/bs"
 import { motion, AnimatePresence} from "framer-motion";
 import ScrollButton from './pages/ScrollButton';
-import ProductPage from './pages/ProductPage';
 import HelpCenter from './pages/HelpCenter';
-import Cart from "./pages/Cart";
+import Cart from './pages/Cart';
+import ProductPage from './pages/ProductPage';
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
@@ -85,8 +85,6 @@ const MainCon = () => {
               <Route path="/my-account/" element={<Account />} />
               <Route path="/product" element={<ProductPage />} />
               <Route path="/sell-on-obanana/" element={<SellOnObanana />} />
-              <Route path="/contact-us/" element={<HelpCenter />} />
-              <Route path="/cart/" element={<Cart />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
           </div>
