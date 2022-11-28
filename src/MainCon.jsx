@@ -22,6 +22,9 @@ import { FiSearch } from "react-icons/fi";
 import {BsBag} from "react-icons/bs"
 import { motion, AnimatePresence} from "framer-motion";
 import ScrollButton from './pages/ScrollButton';
+import ProductPage from './pages/ProductPage';
+import HelpCenter from './pages/HelpCenter';
+import Cart from "./pages/Cart";
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
