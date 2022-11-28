@@ -13,6 +13,8 @@ import {
 } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { InView } from "react-intersection-observer";
+import { Link } from 'react-router-dom';
+
 
 
 const MainNav = ({ setNav, setInView }) => {
@@ -56,8 +58,10 @@ const MainNav = ({ setNav, setInView }) => {
             </div>
             <div className="notif">
               <span>
+              <Link to ="/compare">
                 <FaBalanceScale className="icon" />
                 <p>Compare</p>
+                </Link>
               </span>
               <span>
                 <FaRegHeart className="icon" />
