@@ -22,7 +22,6 @@ import { FiSearch } from "react-icons/fi";
 import {BsBag} from "react-icons/bs"
 import { motion, AnimatePresence} from "framer-motion";
 import ScrollButton from './pages/ScrollButton';
-import Compare from './pages/Compare';
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
@@ -82,7 +81,6 @@ const MainCon = () => {
               <Route path="/faq/" element={<FAQs />} />
               <Route path="/my-account/" element={<Account />} />
               <Route path="/sell-on-obanana/" element={<SellOnObanana />} />
-              <Route path="/compare/" element={<Compare />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
           </div>
