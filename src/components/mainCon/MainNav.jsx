@@ -58,7 +58,7 @@ const MainNav = ({ setNav, setInView }) => {
             </div>
             <div className="notif">
               <span>
-              <Link to ="/compare">
+              <Link to ="/compare" className='link'>
                 <FaBalanceScale className="icon" />
                 <p>Compare</p>
                 </Link>
@@ -238,11 +238,17 @@ const MainNav = ({ setNav, setInView }) => {
             @media (max-width: 574px) {
               display: none;
             }
+            & .link {
+              color: var(--obanana-secondary-color);
+              text-decoration: none;
+            }
             & span {
               display: flex;
               flex-direction: column;
               font-size: 13px;
               font-weight: 100;
+              text-decoration: none;
+
               color: var(--obanana-secondary-color);
               margin: auto 1rem;
               position: relative;
