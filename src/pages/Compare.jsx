@@ -8,7 +8,7 @@ const products = [
     {
       image:  ( <img
         src="https://obanana.com/wp-content/uploads/2022/10/WD101PURP-10TB-7200RPM-256MB-300x300.jpg" 
-        className="productImg"
+        className="productImg" alt=""
       />
     ),
     name:"Western Digital (WD101PURP 10TB 7200RPM 256MB)",
@@ -20,7 +20,7 @@ const products = [
     {
         image:  ( <img
           src="https://obanana.com/wp-content/uploads/2022/03/HDD-300x300.png"
-          className="productImg"
+          className="productImg" alt=""
         />
       ),
       name:"SEAGATE 2TB One Touch External HD)",
@@ -32,7 +32,7 @@ const products = [
       {
         image:  ( <img
           src="https://obanana.com/wp-content/uploads/2022/08/4TB-External-One-Touch-3.5″-Hard-Disk-Drive-USB-3.0-300x300.jpg"
-          className="productImg"
+          className="productImg" alt=""
         />
       ),
       name:"4TB External One Touch 3.5″ Hard Disk Drive (USB 3.0)",
@@ -101,7 +101,6 @@ const Con = styled.div`
   position: relative;
   z-index: 10;
  width: 100%;
- overflow-x: scroll;
   & .header {
     margin: auto;
     background-color: var(--obanana-ptb-bg-color);
@@ -126,7 +125,7 @@ const Con = styled.div`
         display: inline-flex;
       
     & .heading{
-     width: 30vw;
+     width: 25vw;
      margin: auto;
      & button{
       height: 25px;

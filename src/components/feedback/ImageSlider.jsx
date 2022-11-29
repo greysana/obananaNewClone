@@ -16,7 +16,7 @@ const featureCard = [
     image: (
       <img
         src="https://obanana.com/wp-content/uploads/2022/03/CLIENTS-06.jpg"
-        className="iconImg"
+        className="iconImg" alt=""
       />
     ),
     information: "Christian Nicole Nakazawa",
@@ -28,7 +28,7 @@ const featureCard = [
     image: (
       <img
         src="https://obanana.com/wp-content/uploads/2022/03/CLIENTS-07.jpg"
-        className="iconImg"
+        className="iconImg" alt=""
       />
     ),
     information: "Berna Grace Dianne Nadal",
@@ -40,7 +40,7 @@ const featureCard = [
     image: (
       <img
         src="https://obanana.com/wp-content/uploads/2022/03/CLIENTS-08.jpg"
-        className="iconImg"
+        className="iconImg" alt=""
       />
     ),
     information: "Trisha Ellamarie Mateo",
