@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import styled from "styled-components";
+import Nav from "./components/mainCon/Nav";
+import SideNav from "./components/mainCon/SideNav";
 import HeaderNav from './components/mainCon/HeaderNav'
 import MainNav from './components/mainCon/MainNav'
 import { Route, Routes } from "react-router-dom";
@@ -8,10 +11,11 @@ import SellOnObanana from "./pages/SellOnObanana";
 import Footer from "./components/mainCon/Footer";
 import FAQs from "./pages/FAQs";
 import Account from "./pages/Account";
+import HelpCenter from "./pages/HelpCenter";
+import Cart from "./pages/Cart";
+import Compare from "./pages/Compare";
+import ProductPage from "./pages/ProductPage";
 
-import styled from 'styled-components';
-import Nav from './components/mainCon/Nav';
-import SideNav from './components/mainCon/SideNav';
 import {
   AiOutlineClose,
   AiOutlineUnorderedList,
@@ -22,9 +26,7 @@ import { FiSearch } from "react-icons/fi";
 import {BsBag} from "react-icons/bs"
 import { motion, AnimatePresence} from "framer-motion";
 import ScrollButton from './pages/ScrollButton';
-import HelpCenter from './pages/HelpCenter';
-import Cart from './pages/Cart';
-import ProductPage from './pages/ProductPage';
+
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
@@ -85,6 +87,9 @@ const MainCon = () => {
               <Route path="/my-account/" element={<Account />} />
               <Route path="/product" element={<ProductPage />} />
               <Route path="/sell-on-obanana/" element={<SellOnObanana />} />
+              <Route path="/compare/" element={<Compare />} />
+              <Route path="/cart/" element={<Cart />} />
+              <Route path="/contacts/" element={<HelpCenter />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
           </div>

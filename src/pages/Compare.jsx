@@ -101,6 +101,7 @@ const Con = styled.div`
   position: relative;
   z-index: 10;
  width: 100%;
+ overflow-x: scroll;
   & .header {
     margin: auto;
     background-color: var(--obanana-ptb-bg-color);
